@@ -1,0 +1,40 @@
+.recipe {
+  max-width: 1200px;
+  margin: 40px auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.recipe ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 0;
+}
+
+.recipe ul li {
+  list-style-type: none;
+  margin-right: 10px;
+  color: #777;
+}
+
+.recipe ul li::after {
+  content: ',';
+}
+
+.recipe ul li:last-child::after {
+  content: '.';
+}
+
+.recipe .method {
+  text-align: left;
+  line-height: 1.5em;
+}
+/*# sourceMappingURL=Recipe.css.map */
