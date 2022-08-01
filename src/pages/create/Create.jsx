@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import { useTheme } from '../../hooks/useTheme';
 
 // styles
 import './Create.css';
@@ -17,6 +18,16 @@ const Create = () => {
     'http://localhost:3000/recipes',
     'POST'
   );
+  let {mode, color} = useTheme();
+
+  if (color === '#58249c') {
+    color = 'purple';
+  } else if (color === '#249c6b') {
+    color = 'green';
+  } else {
+    color = 'red'
+  }
+    
   let navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -48,8 +59,8 @@ const Create = () => {
   }, [data, navigate]);
 
   return (
-    <div className="create">
-      <h2 className="page-title">Add a New Recipe</h2>
+    <div className={`create ${mode}`}>
+      <h2 className={`page-title ${color}`}>Add a New Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">
           <span>Recipe Title</span>
@@ -75,7 +86,7 @@ const Create = () => {
             value={newIngredient}
             ref={ingredientInput}
           />
-          <button className="btn" onClick={handleAdd}>
+          <button className={`btn btn-${color}`} onClick={handleAdd}>
             add
           </button>
         </div>
@@ -108,7 +119,7 @@ const Create = () => {
           />
         </label>
 
-        <button className="btn">submit</button>
+        <button className={`btn btn-${color}`}>submit</button>
       </form>
     </div>
   );

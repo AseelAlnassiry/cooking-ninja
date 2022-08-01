@@ -9,15 +9,22 @@ import Recipe from './pages/recipe/Recipe';
 
 //components
 import Navbar from './components/Navbar/Navbar';
+import ThemeSelector from './components/ThemeSelector/ThemeSelector';
+
+// hooks
+import { useTheme } from './hooks/useTheme';
 
 // styles
 import './App.css';
 
 function App() {
+
+  const {mode} = useTheme();
   return (
-    <div className="App">
+    <div className={`App ${mode}`}>
       <BrowserRouter>
         <Navbar />
+        <ThemeSelector />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="Create" element={<Create />} />

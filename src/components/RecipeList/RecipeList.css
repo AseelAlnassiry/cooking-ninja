@@ -57,8 +57,26 @@
   transition: all .3s ease;
 }
 
-.recipe-list .card a:hover {
-  background-color: #58249c;
+.recipe-list .card .red:hover {
   color: #fff;
+  background-color: #b70233;
+}
+
+.recipe-list .card .purple:hover {
+  color: #fff;
+  background-color: #58249c;
+}
+
+.recipe-list .card .green:hover {
+  color: #fff;
+  background-color: #249c6b;
+}
+
+.recipe-list .card.dark {
+  background-color: #555;
+}
+
+.recipe-list .card.dark p, .recipe-list .card.dark h3, .recipe-list .card.dark div {
+  color: #e4e4e4;
 }
 /*# sourceMappingURL=RecipeList.css.map */

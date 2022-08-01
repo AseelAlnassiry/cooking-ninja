@@ -22,7 +22,6 @@
   padding: 8px 20px;
   border: 0;
   border-radius: 4px;
-  background: #58249c;
   cursor: pointer;
   text-decoration: none;
   margin: 20px auto;
@@ -39,5 +38,33 @@
 
 .create .ingredients button {
   margin: 0 0 0 10px;
+}
+
+.create.dark {
+  color: #e4e4e4;
+}
+
+.purple {
+  color: #58249c;
+}
+
+.red {
+  color: #b70233;
+}
+
+.green {
+  color: #249c6b;
+}
+
+.btn-purple {
+  background-color: #58249c;
+}
+
+.btn-red {
+  background-color: #b70233;
+}
+
+.btn-green {
+  background-color: #249c6b;
 }
 /*# sourceMappingURL=Create.css.map */

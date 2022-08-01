@@ -48,11 +48,29 @@
       border-radius: 4px;
       margin: 20px auto 0;
       transition: all .3s ease;
+    }
 
-      &:hover {
-        background-color: #58249c;
-        color: #fff;
-      }
+    .red:hover {
+      color: #fff;
+      background-color: #b70233;
+    }
+
+    .purple:hover {
+      color: #fff;
+      background-color: #58249c;
+    }
+
+    .green:hover {
+      color: #fff;
+      background-color: #249c6b;
+    }
+  }
+
+  .card.dark {
+    background-color: #555;
+
+    p, h3, div {
+      color: #e4e4e4;
     }
   }
 }
