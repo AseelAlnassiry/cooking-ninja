@@ -1,16 +1,18 @@
 // hooks
-import useFetch from '../../hooks/useFetch';
+import { useFireFetch } from '../../hooks/useFireFetch';
 import { useParams } from 'react-router-dom';
 import { useTheme } from '../../hooks/useTheme';
+
 
 // styles
 import './Recipe.css';
 
 const Recipe = () => {
   const { id } = useParams();
-  const url = 'http://localhost:3000/recipes/' + id;
-  const { data: recipe, isPending, error } = useFetch(url);
+  const {data: recipe, isPending, error } = useFireFetch('recipes', id)
   let {mode, color} = useTheme();
+
+  console.log(recipe)
 
   if (color === '#58249c') {
     color = 'purple';

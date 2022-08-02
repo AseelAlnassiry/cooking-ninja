@@ -1,8 +1,11 @@
 // hooks
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useFetch from '../../hooks/useFetch';
 import { useTheme } from '../../hooks/useTheme';
+
+// database & firebase
+import db from '../../firebase/config';
+import { collection, addDoc } from 'firebase/firestore';
 
 // styles
 import './Create.css';
@@ -14,30 +17,30 @@ const Create = () => {
   const [newIngredient, setNewIngredient] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef(null);
-  const { postData, data } = useFetch(
-    'http://localhost:3000/recipes',
-    'POST'
-  );
-  let {mode, color} = useTheme();
+  const [data, setData] = useState(null);
+  let { mode, color } = useTheme();
 
   if (color === '#58249c') {
     color = 'purple';
   } else if (color === '#249c6b') {
     color = 'green';
   } else {
-    color = 'red'
+    color = 'red';
   }
-    
+
   let navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    postData({
+    const parameters = {
       title,
       ingredients,
       method,
       cookingTime: cookingTime + ' minutes',
-    });
+    };
+
+    const docRef = await addDoc(collection(db, 'recipes'), parameters);
+    setData(docRef);
   };
 
   const handleAdd = (e) => {
